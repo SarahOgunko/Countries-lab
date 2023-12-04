@@ -1,5 +1,7 @@
 import CountriesListComponent from "../Components/CountriesListComponents";
 import { useEffect, useState } from "react";
+import '../App.css';
+
 const CountriesListContainer = () => {
     const [countries, setCountries]=useState([]);
     const [visitedCountries, setVisitedCountries]=useState([]);
@@ -26,13 +28,13 @@ const CountriesListContainer = () => {
 
      return ( 
 
-        <div>
+        <div className="style">
         <h1>Country Bucket List</h1>
-      <div>
-        <h2>Countries I Want to Visit</h2>
-        {countries.map((country, index) => (
+      <div >
+        <h2 className="title">Countries I Want to Visit</h2>
+        {countries.map((country, id) => (
           <CountriesListComponent 
-          key={index} 
+          key={id} 
           country={country} 
           IWentThere={() => handleVisit(country)}
           
@@ -42,9 +44,9 @@ const CountriesListContainer = () => {
       <hr />
       <div>
         <h2>Visited Countries</h2>
-        {visitedCountries.map((visitedCountry, index) => (
+        {visitedCountries.map((visitedCountry, id) => (
           <CountriesListComponent
-           key={index} 
+           key={id} 
            country={visitedCountry} />
         ))}
       </div>
